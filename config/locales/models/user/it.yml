@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    models:
+      user: Persona
+    attributes: 
+      user:
+        name: Nome
+        email: Email
+        password: Password
