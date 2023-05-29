@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/flashes"%>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

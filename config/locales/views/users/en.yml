@@ -1,1 +1,7 @@
 en:
+  users:
+    new:
+      title: Sign up for Shopping Gioioso
+      sign_up: Sign up!
+    create:
+      welcome: "Welcome to Shopping Gioioso, %{name}"
