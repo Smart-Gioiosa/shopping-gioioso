@@ -1,24 +1,18 @@
-# README
+# SHOPPING GIOIOSO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Costruiremo un'app di mercato di quartiere alla [Gumtree](https://www.gumtree.com/) o [Craigslist](https://craigslist.org). La chiameremo **Shopping Gioioso**. 
 
-Things you may want to cover:
+La maggior parte del lavoro sarà sul web, e utilizzeremo le estensioni native di [Hotwire](https://hotwired.dev/) per le app [iOS e Android](https://turbo.hotwired.dev/handbook/native).
 
-* Ruby version
+Per costruire l'interfaccia grafica utilzzeremo [Bulma](https://bulma.io/).
 
-* System dependencies
+[Bulma](https://bulma.io/) è un framework CSS e una UI Kit che ci fornisce tutto ciò di cui abbiamo bisogno, quindi la useremo per assicurarci che la nostra app sia bella e reattiva!
 
-* Configuration
 
-* Database creation
+### Setup del progetto
+* [Requisiti e creazione dell'app Rails](/documentation/setup/getting_started.md)
 
-* Database initialization
 
-* How to run the test suite
+### Utenti e organizzazioni
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Modello user e form di registrazione](/documentation/Users/users_and_sign_ups.md)
