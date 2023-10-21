@@ -139,9 +139,81 @@ Apriamo il file:
 ```ruby
 module ApplicationHelper
     def title
-        return t("piazza") unless content_for?(:title)
+        return t("app_name") unless content_for?(:title)
 
         "#{content_for(:title)} | #{t("app_name")}"
     end
 end
 ```
+Scriviamo anche un test per questo helper.
+
+```sh
+touch test/helpers/application_helper_test.rb
+```
+Apriamo il file appena creato:
+`test/helpers/application_helper_test.rb`
+
+```ruby
+require 'test_helper'
+class ApplicationHelperTest < ActionView::TestCase
+    test "formats page specific title" do
+        content_for(:title) { "Page Title" }
+        assert_equal "Page Title | #{I18n.t('app_name')}", title
+    end
+
+    test "returns app name when page title is missing" do
+    assert_equal I18n.t('app_name'), title
+    end
+end
+```
+
+Il test fallirà poiché non abbiamo ancora definito la stringa localizzata. 
+
+Nella sezione precedente, abbiamo discusso di una struttura delle cartelle per i dizionari di localizzazione basata su `modelli`` e `viste`. Tuttavia, il `titolo` predefinito della pagina non appartiene a un tale contesto, ma è globale per l'applicazione. Ecco perché la chiave di traduzione non è preceduta da un punto (.).
+
+Questa stringa appartiene a un file per le stringhe globali. Creiamo questo file come segue:
+```sh
+mkdir config/locales/globals
+touch config/locales/globals/en.yml
+```
+e inseriamo il seguente contenuto:
+
+```ruby
+en:
+  app_name: Shopping Gioioso
+```
+
+Ora i test dovrebbero passare. Eseguiamo nuovamente il test, con il comando:
+
+```sh
+bin/rails test
+```
+
+Riavvia il server Rails in modo che prenda in considerazione il nuovo dizionario di localizzazione. Modifica il `layout` dell'applicazione per utilizzare questo `helper`.
+
+Apriamo il file del `layout`, `app/views/layouts/application.html.erb` e lo modifichiamo come segue:
+
+```ruby
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title%></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <%= render "shared/flashes"%>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
+
+```
+Adesso la nostra applicazione web  ha il suo  tag `title`.
+Il risultato non può essere ancora visto poiché non abbiamo creato alcune viste o controller. Sarà il prossimo passo!
