@@ -328,5 +328,9 @@ class UserTest < ActiveSupport::TestCase
 end
 ```
 
-
+Adesso eseguiamo nuovamente:
+```sh
+bin/rails test
+```
+Adesso il nostro test è passato. Siamo pronti per la creazione del nostro form di registrazione.
 
