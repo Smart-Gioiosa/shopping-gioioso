@@ -10,9 +10,9 @@ Per costruire l'interfaccia grafica utilzzeremo [Bulma](https://bulma.io/).
 
 
 ### Setup del progetto
-* [Requisiti e creazione dell'app Rails](/documentation/setup/getting_started.md)
+* [Requisiti e creazione dell'app Rails](/documentation/chapter1/getting_started.md)
 
 
 ### Utenti e organizzazioni
 
-* [Modello user e form di registrazione](/documentation/Users/users_and_sign_ups.md)
+* [Modello User e relazioni](/documentation/chapter3/user_model.md)
