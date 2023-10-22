@@ -113,11 +113,11 @@ locales/
 |- models/
 |-- user/
 |     |-- en.yml
-|     |-- de.yml
+|     |-- it.yml
 |- views/
 |-- users/
 |     |-- en.yml
-|     |-- de.yml
+|     |-- it.yml
 ```
 
 Sembra tutto un pò confuso, man mano che andremo avanti sarà tutto più chiaro.
