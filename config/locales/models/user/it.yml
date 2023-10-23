@@ -7,3 +7,9 @@ it:
         name: Nome
         email: Email
         password: Password
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: Deve contenere almeno 8 caratteri
