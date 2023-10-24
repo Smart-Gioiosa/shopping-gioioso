@@ -1,1 +1,7 @@
 it:
+  users:
+    new:
+      title: Iscriviti su Shopping Gioioso
+      sign_up: Iscriviti!
+    create:
+      welcome: "Benvenuto su Shopping Gioioso, %{name}"
