@@ -16,3 +16,5 @@ Per costruire l'interfaccia grafica utilzzeremo [Bulma](https://bulma.io/).
 ### Utenti e organizzazioni
 
 * [Modello User e relazioni](/documentation/chapter3/user_model.md)
+* [Internazionalizzazione dell'applicazione con Rails I18n](/documentation/chapter3/rails_and_18n.md)
+* [Form di registrazione degli utenti](/documentation/chapter3/sign_up_form.md)

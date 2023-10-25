@@ -1,5 +1,5 @@
 
-### I modello `User` e le sue relazioni in Shopping Gioioso
+### Il modello `User` e le sue relazioni in Shopping Gioioso
 Iniziamo a costruire la nostra applicazione creando un modulo di registrazione che consentirà ai nostri utenti di creare un account su **ShoppingGioioso**.
 
 Questo sarà seguito dalla creazione di un sistema di autenticazione in modo che gli utenti possano effettuare il login e l'applicazione possa identificarli in modo sicuro.
