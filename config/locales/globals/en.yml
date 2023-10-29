@@ -2,3 +2,4 @@ en:
   hello: Hello World!
   goodbye: Goodbye.
   app_name: Shopping Gioioso
+  login_required: You need to log in to view this page!

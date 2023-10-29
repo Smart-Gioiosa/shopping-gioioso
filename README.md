@@ -21,3 +21,4 @@ Per costruire l'interfaccia grafica utilzzeremo [Bulma](https://bulma.io/).
 
 ### Autenticazione e navigazione
 * [Autenticazione basata su cookie](/documentation/chapter4/1_cookie_based_authentication.md)
+* [La pagina di Log In](/documentation/chapter4/2_logging_in.md)

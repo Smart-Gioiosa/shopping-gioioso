@@ -1,2 +1,5 @@
 it:
+  hello: Ciao!
+  goodbye: Arrivederci.
   app_name: Shopping Gioioso
+  login_required: Devi effettuare l'accesso per visualizzare questa pagina!

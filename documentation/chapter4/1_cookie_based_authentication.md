@@ -7,3 +7,9 @@ Quando arriva una richiesta, l'ID utente e il token di sessione vengono estratti
 ![Autenticazione basata sui cookie - Shopping Gioioso](/documentation/chapter4/images/cookie_based_authentication.png "Il flusso per memorizzare e convalidare in modo sicuro le informazioni in un cookie per autenticare una richiesta")
 
 
+Nella prossima sezione inizeremo a costruire la pagina di `Login`
+<br>
+ 👇 👇 👇
+<br>
+[Creazione della pagina di login](/documentation/chapter4/2_logging_in.md)
+

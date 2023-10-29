@@ -1,0 +1,8 @@
+it: 
+  sessions:
+    new:
+      title: Log In
+      submit: Login
+    create:
+      success: Sei connesso!
+      incorrect_details: L'indirizzo email o la password non sono corretti. Per favore, riprova.
