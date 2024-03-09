@@ -266,6 +266,155 @@ bin/rails test
 
 Perfetto! Funziona tutto!!!
 
+## Ottimizzazione del modello `User` attraverso `Concerns`
 
+Ora che abbiamo un po' di esperienza nell'uso delle `concerns`, rifattorizziamo il modello `user` per pulirlo un po'. C'è parecchio codice relativo all'autenticazione che può essere estratto in una singola "model concern". In questo modo, sarà raggruppato in modo ordinato ma nascosto per evitare di appesantire il file principale del modello.
 
+Le `single model concerns` sono annidate con il nome del modello per rendere chiaro che dovrebbero essere utilizzate solo all'interno di quel modello. Crea il file e procediamo con la rifattorizzazione.
 
+```sh
+mkdir app/models/user
+touch app/models/user/authentication.rb
+```
+
+Taglia il seguente codice, dal modello `User` principale situato  in `app/models/user.rb`:
+
+```ruby
+#...
+    has_secure_password
+        validates :password, 
+            presence: true, 
+            length: {minimum: 8}
+
+    has_many :app_sessions
+
+    def self.create_app_session(email:, password:)
+        return nil unless user = User.find_by(email: email.downcase)
+        
+        user.app_sessions.create if user.authenticate(password)
+    end
+
+    def authenticate_app_session(app_session_id, token)
+        app_sessions.find(app_session_id).authenticate_token(token)
+    rescue ActiveRecord::RecordNotFound
+        nil
+    end
+#...
+```
+e incollale nella nuova "concern" come indicato di seguito:
+```ruby
+module User::Authentication
+    extend ActiveSupport::Concern
+    
+    included do
+        has_secure_password
+        
+        validates :password,
+        presence: true,
+        length: { minimum: 8 }
+        
+        has_many :app_sessions
+    end
+
+    class_methods do
+        def create_app_session(email:, password:)
+            return nil unless user = User.find_by(email: email.downcase)
+            user.app_sessions.create if user.authenticate(password)
+        end
+    end
+
+    def authenticate_app_session(app_session_id, token)
+        app_sessions.find(app_session_id).authenticate_token(token)
+    rescue ActiveRecord::RecordNotFound
+        nil
+    end
+
+end
+```
+
+E, infine, questa "concern" deve essere inclusa nel modello principale: `app/models/user.rb`
+
+```ruby
+class User < ApplicationRecord
+    include Authentication
+    # ...
+end
+```
+Se il set di test è ancora verde, l'intervento è riuscito con successo.
+```sh
+bin/rails test
+```
+Il test è passato!!!
+
+C'è un altro piccolo intervento di refactoring che potremmo fare. I test per il codice in `User::Authentication` sono ancora situati insieme ai test per il resto del modello in `UserTest`. Non c'è assolutamente nulla di sbagliato in questo, ma preferisco abbinare la stessa struttura di `concern` nei casi di test. Crea un nuovo caso di test `User::AuthenticationTest` per spostare eventuali test relativi al codice in `User::Authentication`.
+
+```sh
+mkdir test/models/user
+touch test/models/user/authentication_test.rb
+```
+Sposta i test pertinenti nel nuovo file: `test/models/user/authentication_test.rb`.
+```ruby
+require "test_helper"
+
+class User::AuthenticationTest < ActiveSupport::TestCase
+  test "password length must be between 8 and ActiveModel's maximum" do
+    @user = User.new(
+      name: "Jane",
+      email: "janedoe@example.com",
+      password: ""
+    )
+    assert_not @user.valid?
+
+    @user.password = "password"
+    assert @user.valid?
+
+    max_length =
+      ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED
+    @user.password = "a" * (max_length + 1)
+    assert_not @user.valid?
+  end
+
+  test "can create a session with email and correct password" do
+    @app_session = User.create_app_session(
+      email: "jerry@example.com",
+      password: "password"
+    )
+
+    assert_not_nil @app_session
+    assert_not_nil @app_session.token
+  end
+
+  test "cannot create a session with email and incorrect password" do
+    @app_session = User.create_app_session(
+      email: "jerry@example.com",
+      password: "WRONG"
+    )
+
+    assert_nil @session
+  end
+
+  test "creating a session with non existent email returns nil" do
+    @app_session = User.create_app_session(
+      email: "whoami@example.com",
+      password: "WRONG"
+    )
+
+    assert_nil @app_session
+  end
+
+  test "can authenticate with a valid session id and token" do
+    @user = users(:jerry)
+    @app_session = @user.app_sessions.create
+
+    assert_equal @app_session,
+      @user.authenticate_app_session(@app_session.id, @app_session.token)
+  end
+
+  test "trying to authenticate with a token that doesn't exist returns false" do
+    @user = users(:jerry)
+
+    assert_not @user.authenticate_app_session(50, "token")
+  end
+end
+```
+Ricorda di eliminare i test corrispondenti da 'test/models/user_test.rb' e quindi esegui nuovamente l'insieme di test.
