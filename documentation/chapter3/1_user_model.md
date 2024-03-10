@@ -1,5 +1,5 @@
 
-### Il modello `User` e le sue relazioni in Shopping Gioioso
+# Il modello `User` e le sue relazioni in Shopping Gioioso
 Iniziamo a costruire la nostra applicazione creando un modulo di registrazione che consentirà ai nostri utenti di creare un account su **ShoppingGioioso**.
 
 Questo sarà seguito dalla creazione di un sistema di autenticazione in modo che gli utenti possano effettuare il login e l'applicazione possa identificarli in modo sicuro.
@@ -7,7 +7,7 @@ Questo sarà seguito dalla creazione di un sistema di autenticazione in modo che
 Il primo passo è la creazioene dei modelli **User** e **Organization**
 
 
-#### Modellazione di Utenti e Organizzazioni
+## Modellazione di Utenti e Organizzazioni
 Gli **utenti** costituiscono la parte principale della nostra applicazione web. L'altra è rappresentata dalle **Organizzazioni**. 
 Un Utente appartiene a un'Organizzazione e tutte le risorse di dominio appartengono all'Organizzazione anziché al singolo Utente.
 
@@ -18,7 +18,7 @@ Tuttavia, nel contesto del modello di dominio, è fondamentale avere il concetto
 
 *MVP - Minimum Viable Product (Prodotto Minimo Funzionante) - Si riferisce a una versione iniziale di un prodotto che include solo le funzionalità più essenziali per soddisfare i requisiti minimi degli utenti.*
 
-#### Modelli e tabelle del database
+## Modelli e tabelle del database
 Un **Utente(User)**  dovrebbe poter appartenere a molte **Organizzazioni(Organization)**, e allo stesso tempo, un'**Organizzazione(Organization)** dovrebbe poter avere molti **Utenti**. Ciò significa che esiste un'associazione **many-to-many** tra questi due modelli che richiede una tabella di unione e un modello corrispondente. Questo modello sarà chiamato **"Membership"**. Genera i modelli e le migrazioni del database per queste entità.
 
 ```sh
@@ -50,7 +50,7 @@ bin/rails db:migrate
 Cosi da creare le tabelle nel nostro database.
 
 
-#### Validazioni e relazioni
+## Validazioni e relazioni
 Ora che i modelli sono pronti, aggiungiamo alcune **validazioni** e le **relazioni** per riflettere le chiavi esterne del database.
 
 L'**utente** deve avere un nome e un'email valida e unica, quindi è necessario validare questi attributi.
@@ -170,7 +170,7 @@ class Membership < ApplicationRecord
 end
 ```
 
-#### Rimuovere spazi superflui
+## Rimuovere spazi superflui
 
 Un errore comune che le persone commettono quando compilano moduli web è quello di includere accidentalmente uno spazio all'inizio o alla fine di un campo. Questo non è sempre un problema, ma in un indirizzo email, uno spazio indesiderato può causare vari tipi di problemi. Aggiungiamo un metodo per rimuovere gli spazi nell'indirizzo email e nel nome.
 
@@ -190,7 +190,7 @@ end
 L'uso del simbolo **"&"** sugli attributi viene fatto quando si chiama il metodo "strip" per essere sicuri nel caso in cui quegli attributi siano nulli. Non dovrebbero esserlo, ma se lo fossero, comunque causerebbero un errore di convalida e non dovrebbero generare un'eccezione.
 
 
-#### Password sicure
+## Password sicure
 
 Come accennato in precedenza, la password deve essere memorizzata in modo sicuro nel database sotto forma di un `digest`. Rails fornisce un `helper` chiamato `has_secure_password` per fare esattamente questo. Prima di poterlo utilizzare,la  gemma  `bcrypt` utilizzato per calcolare il digest deve essere aggiunto al progetto.
 
@@ -333,4 +333,6 @@ Adesso eseguiamo nuovamente:
 bin/rails test
 ```
 Adesso il nostro test è passato. Siamo pronti per la creazione del nostro form di registrazione.
+
+[Prossimo lezione](/documentation/chapter3/2_rails_and_18n.md)
 

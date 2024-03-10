@@ -419,3 +419,5 @@ end
 ```
 Ricorda di eliminare i test corrispondenti da `test/models/user_test.rb` e quindi esegui nuovamente l'insieme di test.
 
+[Prossima lezione - La barra di navigazione](/documentation/chapter4/4_the_navigation_bar.md)
+

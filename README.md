@@ -15,10 +15,13 @@ Per costruire l'interfaccia grafica utilzzeremo [Bulma](https://bulma.io/).
 
 ### Utenti e organizzazioni
 
-* [Modello User e relazioni](/documentation/chapter3/user_model.md)
-* [Internazionalizzazione dell'applicazione con Rails I18n](/documentation/chapter3/rails_and_18n.md)
-* [Form di registrazione degli utenti](/documentation/chapter3/sign_up_form.md)
+* [Modello User e relazioni](/documentation/chapter3/1_user_model.md)
+* [Internazionalizzazione dell'applicazione con Rails I18n](/documentation/chapter3/2_rails_and_18n.md)
+* [Form di registrazione degli utenti](/documentation/chapter3/3_sign_up_form.md)
 
 ### Autenticazione e navigazione
 * [Autenticazione basata su cookie](/documentation/chapter4/1_cookie_based_authentication.md)
 * [La pagina di Log In](/documentation/chapter4/2_logging_in.md)
+* [Test, Test, Test](/documentation/chapter4/3_test_test_test.md)
+* [La barra di navigazione](/documentation/chapter4/4_the_navigation_bar.md)
+* [Loggin out](/documentation/chapter4/5_logging_out.md)

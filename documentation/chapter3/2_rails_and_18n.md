@@ -1,4 +1,4 @@
-### Rails e I18n
+# Rails e I18n
 
 Prima di creare il modulo di registrazione, facciamo una breve deviazione e discutiamo di `internazionalizzazione (I18n)` e `localizzazione (L18n)`. 
 #ShoppingGioioso verrà internazionalizzato fin dall'inizio. Ciò significa che tutto il testo rivolto agli utenti verrà astratto dalla nostra applicazione e inserito in `dizionari di localizzazione` in modo che l'applicazione possa essere utilizzata in diverse lingue.
@@ -29,7 +29,7 @@ I18n.t "goodbye"
 ```
 Dal punto di vista concettuale, è tutto qui! `I18n` utilizza `:en` come lingua predefinita, quindi non è necessaria alcuna configurazione fino a quando non vengono aggiunte più lingue.
 
-#### Stringhe localizzate nelle `viste` e nei `controller`
+## Stringhe localizzate nelle `viste` e nei `controller`
 
 La chiave per una stringa localizzata può essere dedotta dal contesto quando si chiama `t` in un `controller` o una `vista`, come segue:
 
@@ -50,7 +50,7 @@ Il modulo `I18n` non deve essere specificato quando si chiama `t` in un `control
 Possiamo notare anche che la chiave ha un punto `(.)` come prefisso. Questo dice a `Rails` di dedurre la chiave completa dal contesto e si espanderà a `users.create.success`. Per convenzione, il nome del `controller` e dell'`azione` sono separati da un punto, così un (.)  viene anteposto alla chiave fornita.
 La stessa logica si applica anche nei file di visualizzazione. In questo modo, i nomi delle chiavi rimangono concisi!
 
-#### Localizzazione in `Active Record`
+## Localizzazione in `Active Record`
 
 Gli attributi di `Active Record` vengono spesso utilizzati nell'interfaccia utente in `Rails`. Ad esempio, un tipico modulo Rails appare come segue:
 
@@ -101,7 +101,7 @@ Ecco come `Active Record` si collega direttamente alla localizzazione e non è n
 
 Questa tecnica è anche utile quando il valore rivolto all'utente di un modello o di un attributo è diverso da come è chiamato nel database.
 
-#### Struttura delle cartelle per il dizionario di localizzazione.
+## Struttura delle cartelle per il dizionario di localizzazione.
 
 Come menzionato in precedenza, i dizionari di localizzazione vanno nella cartella `config/locales/`. Teoricamente, potremmo mettere tutte le stringhe in un unico file enorme, ma ciò renderebbe impossibile la manutenzione. In questo caso, `Rails` non impone una struttura specifica, quindi è prudente seguire alcune regole di base per l'organizzazione.
 
@@ -123,7 +123,7 @@ locales/
 Sembra tutto un pò confuso, man mano che andremo avanti sarà tutto più chiaro.
 
 
-#### Localizzare il titolo della pagina.
+## Localizzare il titolo della pagina.
 Mettiamo subito in pratica alcune delle idee sopra menzionate e estraiamo il titolo della pagina in un dizionario di localizzazione. Innanzitutto, Rails dispone di un file predefinito per il dizionario di localizzazione, ma in questo progetto non lo utilizziamo, quindi eliminiamolo.
 
 ```sh
@@ -217,3 +217,5 @@ Apriamo il file del `layout`, `app/views/layouts/application.html.erb` e lo modi
 ```
 Adesso la nostra applicazione web  ha il suo  tag `title`.
 Il risultato non può essere ancora visto poiché non abbiamo creato alcune viste o controller. Sarà il prossimo passo!
+
+[Prossima lezione](/documentation/chapter3/3_sign_up_form.md)

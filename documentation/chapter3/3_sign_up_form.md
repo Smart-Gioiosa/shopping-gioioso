@@ -1,9 +1,9 @@
-### Form di registrazione
+# Form di registrazione
 
 Siamo ora pronti a scrivere del codice dell'interfaccia utente da poter vedere i frutti del nostro lavoro. Come precedentemente menzionato utilizzeremo per il nostro css [Bulma](https://bulma.io/). Bulma è un frmework class-based molto intuitivo.
 
 
-#### Configurazione delle rotte(`routes`), dei controller e delle viste.
+## Configurazione delle rotte(`routes`), dei controller e delle viste.
 
 La prima cosa di cui abbiamo bisogno è un `UsersController` insieme alle azioni per mostrare il modulo di registrazione e gestire la sottomissione(`l'invio del modulo`).
  La homepage di `Shopping Gioioso` sarà un feed di annunci di prodotti. Entreremo nei dettagli in seguito, ma creiamo anche un `FeedController`. L'utente verrà reindirizzato al feed dopo essersi registrato. 
@@ -39,7 +39,7 @@ end
 
 Se visiti [http://localhost:3000/](http://localhost:3000/) e [http://localhost:3000/sign_up](http://localhost:3000/sign_up) nel tuo browser web, dovresti vedere un po' di testo con la posizione del file di visualizzazione. 
 
-#### Sviluppo del form di registrazione.
+## Sviluppo del form di registrazione.
 
 ![Mockup form di registrazione per Shopping Gioioso](/documentation/chapter3/images/SignUp-ShoppingGioioso.png "Mockup form di registrazione")
 
@@ -176,7 +176,7 @@ Adesso procediamo alla compilazione del form  con dati validi e sarermo reindiri
 Ma notiamo che manca ilil messaggio di benvenuto. L'abbiamo memorizzato nel flash, ma deve ancora essere reso nella UI.
 
 
-#### Rendere i messaggi flash
+## Rendere i messaggi flash
 
 Il meccanismo `flash` di Rails viene utilizzato per visualizzare avvisi in tutto l'applicazione, quindi appartiene al file layout  `application.html.erb`:
 
@@ -225,7 +225,7 @@ Ora, se torniamo al form di registrazione e lo inviamo con dati validi, vedremo 
 
 Il form funziona bene con dati validi, ma cosa succede con dati non validi?
 
-#### Rendering degli errori di input del form.
+## Rendering degli errori di input del form.
 
 Ogni applicazione web dovrebbe essere progettata per gestire input imprevisti e non validi da parte dell'utente. 
 
@@ -315,7 +315,7 @@ Adesso riavviamo il server `Rails` in modo che questo inizializzatore venga eseg
 
 ![Sign Up - Errors - Shopping Gioioso](/documentation/chapter3/images/sign_up_with_errors.png "Visualizzare i messagi di errore nel form di registrazione")
 
-#### Personalizzare i messaggi di errore di Active Record
+## Personalizzare i messaggi di errore di Active Record
 I messaggi di errore visualizzati nel form di registrazione provengono da `Active Record`. Essi vengono generati quando le validazioni del modello non vengono soddisfatte. Di conseguenza, essi possono essere `personalizzati` o `localizzati` nello stesso modo dei nomi del modello o degli attributi di `Active Record`.
 
 Il modo più semplice per determinare la chiave per una qualsiasi stringa data è utilizzare una gemma chiamata `i18n-debug`. Essa registra la chiave di localizzazione per ogni stringa visualizzata in una vista sulla console.
@@ -365,7 +365,7 @@ Ancora una volta, inviamo il form con una password troppo corta e vedremo il nuo
 
 ![Sign Up - Messaggio di errore personalizzato - Shopping Gioioso](/documentation/chapter3/images/custom_message_error.png "Visualizzare i messagi di errore peronalizzati nel form di registrazione")
 
-#### Test del controller
+## Test del controller
 
 Con il flusso di registrazione attivo, è una buona idea avvolgerlo in alcuni test del controller. Questi test si concentrano su un singolo controller e fanno richieste HTTP a un percorso e verificano le risposte.
 
@@ -439,3 +439,5 @@ Possiamo anche notare come il `test asserisce` il testo sulla pagina utilizzando
 L'elenco completo delle azioni di test disponibili nei test del controller è disponibile nella documentazione di Rails: [https://api.rubyonrails.org/classes/ActionDispatch/Integration/RequestHelpers.html](https://api.rubyonrails.org/classes/ActionDispatch/Integration/RequestHelpers.html).
 
 I metodi di asserzione specifici per i test del controller si trovano nella loro repository dedicata chiamata `rails-dom-testing`. La documentazione è disponibile qui: [https://www.rubydoc.info/gems/rails-dom-testing/](https://www.rubydoc.info/gems/rails-dom-testing/).
+
+[Prossima lezione](/documentation/chapter4/1_cookie_based_authentication.md)

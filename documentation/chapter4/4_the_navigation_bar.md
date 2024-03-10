@@ -360,3 +360,5 @@ Dovrebbe funzionare. Aggiorna la pagina, passa il tuo browser in modalità respo
 Se il menu non funziona ancora, interrompi il tuo server Rails e esegui `bin/rails assets:clobber`. Quindi avvia nuovamente il tuo server.
 
 Committa il tuo codice prima di procedere.
+
+[Prossima lezione - Logging out](/documentation/chapter4/5_logging_out.md)

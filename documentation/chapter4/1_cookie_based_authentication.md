@@ -11,5 +11,5 @@ Nella prossima sezione inizeremo a costruire la pagina di `Login`
 <br>
  👇 👇 👇
 <br>
-[Creazione della pagina di login](/documentation/chapter4/2_logging_in.md)
+[Prossima lezione - Creazione della pagina di login](/documentation/chapter4/2_logging_in.md)
 

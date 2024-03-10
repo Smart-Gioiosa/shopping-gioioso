@@ -963,4 +963,6 @@ bin/rails test
 
 Tutti i test dovrebbero essere eseguiti con successo!
 
+[Prossima lezione - Test, Test, Test](/documentation/chapter4/3_test_test_test.md)
+
 
