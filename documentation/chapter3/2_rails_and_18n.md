@@ -218,4 +218,4 @@ Apriamo il file del `layout`, `app/views/layouts/application.html.erb` e lo modi
 Adesso la nostra applicazione web  ha il suo  tag `title`.
 Il risultato non può essere ancora visto poiché non abbiamo creato alcune viste o controller. Sarà il prossimo passo!
 
-[Prossima lezione](/documentation/chapter3/3_sign_up_form.md)
+[Prossima lezione - Signup Form](/documentation/chapter3/3_sign_up_form.md)

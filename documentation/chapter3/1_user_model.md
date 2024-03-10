@@ -334,5 +334,5 @@ bin/rails test
 ```
 Adesso il nostro test è passato. Siamo pronti per la creazione del nostro form di registrazione.
 
-[Prossimo lezione](/documentation/chapter3/2_rails_and_18n.md)
+[Prossima lezione - Rails I18n](/documentation/chapter3/2_rails_and_18n.md)
 

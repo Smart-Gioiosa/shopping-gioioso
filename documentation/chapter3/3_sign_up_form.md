@@ -440,4 +440,4 @@ L'elenco completo delle azioni di test disponibili nei test del controller è di
 
 I metodi di asserzione specifici per i test del controller si trovano nella loro repository dedicata chiamata `rails-dom-testing`. La documentazione è disponibile qui: [https://www.rubydoc.info/gems/rails-dom-testing/](https://www.rubydoc.info/gems/rails-dom-testing/).
 
-[Prossima lezione](/documentation/chapter4/1_cookie_based_authentication.md)
+[Prossima lezione - Autenticazione basata su cookie](/documentation/chapter4/1_cookie_based_authentication.md)
