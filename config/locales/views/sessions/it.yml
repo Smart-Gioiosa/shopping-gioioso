@@ -6,3 +6,5 @@ it:
     create:
       success: Sei connesso!
       incorrect_details: L'indirizzo email o la password non sono corretti. Per favore, riprova.
+    destroy:
+      success: Hai effettuato il logout con successo!

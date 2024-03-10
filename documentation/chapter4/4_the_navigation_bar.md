@@ -3,10 +3,12 @@
 Addesso costruiamo la struttura portante della navigazione di Shopping Gioioso: la barra di navigazione. Avrà un aspetto diverso per gli utenti loggati e non loggati. 
 
 *Utenti loggati*
+
 ![Navbar LoggedIn - Shopping Gioioso](/documentation/chapter4/images/navigation_bar_logged_in.png "Mockup navbar logged in - Shopping Gioioso ")
 
 
 *Utenti non loggati*
+
 ![Navbar LoggedOut - Shopping Gioioso](/documentation/chapter4/images/navigation_bar_logged_out.png "Mockup navbar logged out - Shopping Gioioso ")
 
 ## La struttura HTML della navbar
