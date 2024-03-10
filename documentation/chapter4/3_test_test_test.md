@@ -417,4 +417,5 @@ class User::AuthenticationTest < ActiveSupport::TestCase
   end
 end
 ```
-Ricorda di eliminare i test corrispondenti da 'test/models/user_test.rb' e quindi esegui nuovamente l'insieme di test.
+Ricorda di eliminare i test corrispondenti da `test/models/user_test.rb` e quindi esegui nuovamente l'insieme di test.
+
