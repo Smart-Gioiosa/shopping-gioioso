@@ -1,4 +1,4 @@
-### I requisiti preliminari
+# I requisiti preliminari
 
 Verifica che siano installate le versioni corrette di Ruby e Rails. Avrai bisogno di almeno Rails 7 e Ruby 3.2 per la creazione di questo progetto.
 
